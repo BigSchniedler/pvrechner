@@ -163,6 +163,7 @@ footer a:hover{color:var(--navy)}
     <span class="wm">Solarenergie<b>rechner</b></span>
   </a>
   <div class="sp"></div>
+  <a class="nl" href="./methodik.html">Methodik</a>
   <a class="nl" href="./impressum.html">Impressum</a>
 </div></nav>
 
@@ -226,7 +227,7 @@ footer a:hover{color:var(--navy)}
 
 <section id="methodik" class="section">
   <h2>Wie der Rechner rechnet</h2>
-  <p>Der Rechner simuliert ein ganzes Jahr Stunde für Stunde – mit echten Wetterdaten und einem typischen Haushaltsprofil. Über 25 Jahre verrechnet er Anschaffung, Stromersparnis, Einspeisung, laufende Kosten und Förderungen und zeigt für jede Variante Kapitalwert, Rendite und Amortisationszeit.</p>
+  <p>Der Rechner simuliert ein ganzes Jahr Stunde für Stunde – mit echten Wetterdaten und einem typischen Haushaltsprofil. Über 25 Jahre verrechnet er Anschaffung, Stromersparnis, Einspeisung, laufende Kosten und Förderungen und zeigt für jede Variante Kapitalwert, Rendite und Amortisationszeit. <a href="./methodik.html">Ausführliche Methodik &amp; Berechnung →</a></p>
   <p class="fine">Die Ergebnisse sind eine fundierte Orientierung, keine Finanz- oder Steuerberatung. Reale Angebote, Preise und Förderungen können abweichen.</p>
 </section>
 
@@ -241,6 +242,7 @@ footer a:hover{color:var(--navy)}
     <span>© 2026 Solarenergierechner.de</span>
     <div class="sp"></div>
     <a href="#kontakt">Kontakt</a>
+    <a href="./methodik.html">Methodik</a>
     <a href="./impressum.html">Impressum</a>
     <a href="./datenschutz.html">Datenschutz</a>
   </div>
@@ -501,8 +503,8 @@ document.getElementById("reset").addEventListener("click",()=>{
     document.getElementById("v_"+k).textContent=fmtVal(k,DEFS[k].d);fillStyle(el);});
   state.bess=true;state.ev=true;state.v2h=false;updateEnable();render();});
 document.getElementById("foot").innerHTML=
- "<b>Modellgrundlage:</b> Stündliche Simulation über 8.760 h (Wetterjahr 2020, PVGIS-SARAH3), Standardlastprofil BDEW H25, 25 Jahre, nominale Rechnung inkl. §14a-EnWG-Netzentgeltreduktion (150 €/Jahr) bei Speicher-/E-Auto-Konzepten. "+
- "Ergebnisse sind Orientierung, keine Finanz- oder Steuerberatung.";
+ "<b>Modellgrundlage:</b> Bachelorarbeit „Der Einfluss eines Elektrofahrzeugs auf die Wirtschaftlichkeit einer Photovoltaikanlage im deutschen Einfamilienhaushalt“. Stündliche Simulation über 8.760 h (Wetterjahr 2020, PVGIS-SARAH3), Standardlastprofil BDEW H25, 25 Jahre, nominale Rechnung inkl. §14a-EnWG-Netzentgeltreduktion (150 €/Jahr) bei Speicher-/E-Auto-Konzepten. "+
+ "<b>V2H</b> reagiert stark auf die Anwesenheit des Autos — Standard ist ein Pendlerprofil (tagsüber weg). Ergebnisse sind Orientierung, keine Finanz- oder Steuerberatung.";
 // ===== go =====
 initCharts();updateEnable();render();
 </script>

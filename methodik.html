@@ -1,0 +1,113 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Methodik & Berechnung – Solarenergierechner</title>
+<meta name="description" content="Transparent erklärt: Wie der Solarenergierechner rechnet – stündliche Jahressimulation, Kosten und Erträge über 25 Jahre, Kapitalwert, Rendite, Amortisation. Alle Annahmen offen dokumentiert.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://solarenergierechner.de/methodik.html">
+<link rel="icon" href="./favicon.svg" type="image/svg+xml">
+<style>*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Calibri,"Segoe UI",system-ui,Arial,sans-serif;color:#141726;background:#eceff7;line-height:1.62}
+nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid #e2e6f0}
+nav .in{max-width:900px;margin:0 auto;padding:11px 20px;display:flex;align-items:center;gap:20px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:700;font-size:18px;color:#1E2761}
+.brand .mark{width:28px;height:28px}.brand b{color:#F2A900}
+nav .sp{flex:1}nav a.l{text-decoration:none;font-size:14px;color:#5b6070;margin-left:18px}nav a.l:hover{color:#1E2761}
+main{max-width:820px;margin:0 auto;padding:38px 20px 60px}
+main h1{font-size:31px;color:#1E2761;margin:0 0 6px}
+main .lead{font-size:17px;color:#3a3f52;margin:0 0 8px}
+main h2{font-size:21px;color:#1E2761;margin:34px 0 8px}
+main p,main li{font-size:16px;color:#2f3346}
+main a{color:#2E3A78}
+ul{margin:8px 0;padding-left:22px}li{margin:6px 0}
+.term{margin:12px 0}.term b{color:#1E2761}
+table{width:100%;border-collapse:collapse;margin:12px 0 4px;font-size:15px}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid #e2e6f0;vertical-align:top}
+thead th{color:#1E2761;border-bottom:2px solid #e2e6f0;font-size:13.5px;text-transform:uppercase;letter-spacing:.4px}
+td:last-child{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;color:#1E2761;font-weight:600}
+.note{background:#fdf7ea;border:1px solid #f0dcae;border-radius:12px;padding:15px 17px;font-size:14.5px;color:#6b5a2e;margin:26px 0 0;line-height:1.55}
+.note b{color:#5a4a1e}
+.cta{display:inline-block;margin-top:24px;background:#F2A900;color:#3a2c00;text-decoration:none;font-weight:700;font-size:15px;padding:12px 22px;border-radius:10px}
+.cta:hover{background:#e19c00}
+footer{border-top:1px solid #e2e6f0;background:#fff}
+footer .in{max-width:900px;margin:0 auto;padding:20px;display:flex;flex-wrap:wrap;gap:12px 18px;font-size:13.5px;color:#5b6070}
+footer a{color:#5b6070;text-decoration:none}footer a:hover{color:#1E2761}footer .sp{flex:1}</style></head><body>
+<nav><div class="in"><a class="brand" href="./index.html"><svg class="mark" viewBox="0 0 48 48"><rect width="48" height="48" rx="12" fill="#1E2761"/><path d="M27 7 L14 27 h8 l-3 14 16-21 h-8 z" fill="#F2A900"/></svg><span>Solarenergie<b>rechner</b></span></a><div class="sp"></div><a class="l" href="./index.html#rechner">Rechner</a><a class="l" href="./methodik.html">Methodik</a><a class="l" href="./impressum.html">Impressum</a><a class="l" href="./datenschutz.html">Datenschutz</a></div></nav>
+<main>
+<h1>Methodik & Berechnung</h1>
+<p class="lead">Damit du den Zahlen nicht blind vertrauen musst: Hier steht offen, wie der Rechner arbeitet – von der Simulation bis zur letzten Annahme.</p>
+
+<h2>1. Stündliche Simulation über ein ganzes Jahr</h2>
+<p>Kern des Rechners ist keine Faustformel, sondern eine Simulation über <b>8.760 Stunden</b> – jede Stunde eines vollen Jahres. Für jede Stunde wird bilanziert, wie viel Solarstrom erzeugt wird und wie viel Haushalt und Auto verbrauchen.</p>
+<p>Die Sonnenerträge stammen aus realen Wetterdaten (<b>PVGIS-SARAH3</b>, Wetterjahr 2020) für einen typischen Standort in Deutschland. Der Haushaltsverbrauch folgt dem <b>Standardlastprofil H25</b> des BDEW – also einem realistischen Tages- und Jahresverlauf eines Einfamilienhaushalts.</p>
+
+<h2>2. So wird der Solarstrom in jeder Stunde verteilt</h2>
+<p>In jeder Stunde geht der Strom nach einer festen Rangfolge dorthin, wo er am meisten wert ist:</p>
+<ul>
+<li><b>Zuerst der Haushalt:</b> Solarstrom deckt direkt den aktuellen Verbrauch.</li>
+<li><b>Dann Auto und Speicher:</b> Überschuss lädt – sofern zugeschaltet – das E-Auto (wenn es zuhause ist) und den Batteriespeicher.</li>
+<li><b>Rest ins Netz:</b> Was übrig bleibt, wird eingespeist (Einspeisevergütung).</li>
+<li><b>Bei Sonnenmangel:</b> Fehlt Strom, springt zuerst der Speicher ein, dann – bei bidirektionalem Laden – das Auto, und erst zuletzt das öffentliche Netz.</li>
+</ul>
+<p>Weil das Stunde für Stunde passiert, bildet der Rechner ab, was zeitlich wirklich zusammenpasst: Mittagssonne mit einem Auto, das tagsüber weg ist, bringt eben wenig – ein Speicher oder ein anwesendes Auto dagegen viel.</p>
+
+<h2>3. Die Wirtschaftlichkeit über 25 Jahre</h2>
+<p>Aus den Energiemengen wird ein Cashflow über 25 Jahre. In jede Jahresbilanz fließen ein:</p>
+<ul>
+<li><b>Investition</b> (einmalig): PV-Anlage, optional Batteriespeicher und Wallbox. Der Kaufpreis des Autos zählt bewusst nicht mit (siehe Punkt 6).</li>
+<li><b>Stromkosten-Ersparnis:</b> jede selbst genutzte Kilowattstunde Solarstrom spart den Strompreis.</li>
+<li><b>Einspeisevergütung:</b> für den ins Netz eingespeisten Solarstrom (feste Vergütung in den ersten 20 Jahren).</li>
+<li><b>§14a-EnWG-Netzentgeltreduktion:</b> pauschale Ersparnis pro Jahr für steuerbare Einrichtungen wie Speicher und Wallbox.</li>
+<li><b>Laufende Kosten:</b> Betrieb, Wartung, Versicherung.</li>
+<li><b>Ersatzinvestitionen:</b> Wechselrichter-Tausch (~Jahr 12), Speicher-Ersatz (~Jahr 16).</li>
+<li><b>Degradation:</b> die PV-Leistung nimmt über die Jahre leicht ab.</li>
+<li><b>Strompreissteigerung &amp; Diskontierung:</b> künftige Strompreise steigen, künftiges Geld wird auf den heutigen Wert abgezinst (Kalkulationszins).</li>
+</ul>
+
+<h2>4. Die wichtigsten Kennzahlen</h2>
+<div class="term"><b>Kapitalwert (über 25 Jahre):</b> alle Ein- und Auszahlungen, abgezinst auf heute, minus Investition. Positiv = die Anlage bringt über die Laufzeit mehr ein, als sie kostet.</div>
+<div class="term"><b>Rendite (IRR):</b> die jährliche Verzinsung deines eingesetzten Geldes – vergleichbar mit einem Zinssatz.</div>
+<div class="term"><b>Amortisation:</b> das Jahr, in dem sich die Investition zurückverdient hat (die Linie im Diagramm die Null kreuzt).</div>
+<div class="term"><b>Eigenverbrauchsquote:</b> welcher Anteil deines Solarstroms selbst genutzt statt eingespeist wird.</div>
+<div class="term"><b>Autarkiegrad:</b> welcher Anteil deines Verbrauchs aus eigener Erzeugung/Speicher statt aus dem Netz kommt.</div>
+
+<h2>5. Standard-Annahmen</h2>
+<p>Diese Werte sind hinterlegt – die meisten kannst du im Rechner über die Regler an deine Situation anpassen:</p>
+<table>
+<thead><tr><th>Größe</th><th>Standardwert</th></tr></thead>
+<tbody>
+<tr><td>Strompreis heute</td><td>0,37 €/kWh</td></tr>
+<tr><td>Strompreis-Steigerung</td><td>3 % pro Jahr</td></tr>
+<tr><td>Einspeisevergütung</td><td>7,78 ct/kWh</td></tr>
+<tr><td>Kalkulationszins (Diskontierung)</td><td>4 %</td></tr>
+<tr><td>PV-Anlage</td><td>1.500 €/kWp</td></tr>
+<tr><td>Batteriespeicher</td><td>750 €/kWh</td></tr>
+<tr><td>Wallbox (laden / bidirektional)</td><td>1.200 € / 6.000 €</td></tr>
+<tr><td>Wirkungsgrad Speicher / V2H</td><td>90 % / 80 %</td></tr>
+<tr><td>Laufende Kosten</td><td>15 €/kWp pro Jahr</td></tr>
+<tr><td>Wechselrichter-Tausch / Speicher-Ersatz</td><td>~Jahr 12 / ~Jahr 16</td></tr>
+<tr><td>§14a-EnWG-Reduktion</td><td>150 €/Jahr</td></tr>
+<tr><td>Betrachtungszeitraum</td><td>25 Jahre</td></tr>
+<tr><td>Wetterdaten / Lastprofil</td><td>PVGIS-SARAH3 2020 / BDEW H25</td></tr>
+</tbody>
+</table>
+
+<h2>6. Warum das E-Auto ohne Kaufpreis gerechnet wird</h2>
+<p>Der Rechner beantwortet die Frage: „Lohnt sich die <b>Kopplung</b> von Photovoltaik und E-Auto, wenn ich das Auto ohnehin habe?" Das Auto ist eine Mobilitäts­entscheidung – kein Teil der Solar-Investition. Deshalb zählt bei den E-Auto-Varianten nur die Wallbox zur Investition, nicht der Fahrzeugpreis.</p>
+<p>Würde man die 30.000–50.000 € für das Auto der Solaranlage anlasten, wären alle E-Auto-Varianten automatisch stark negativ – und die eigentliche Aussage („bringt die Kopplung etwas?") ginge unter. Sinnvoll vergleichbar wäre ein Auto-Kaufpreis nur gegen einen Verbrenner (Kaufpreis + Sprit + Wartung), was ein ganz anderer Rechner wäre.</p>
+
+<h2>7. Warum die Anwesenheit des Autos zählt</h2>
+<p>Bidirektionales Laden (Auto speist ins Haus zurück) und das Solarladen des Autos funktionieren nur, wenn das Auto dann zuhause steht, wenn die Sonne scheint. Bei einem klassischen Pendlerprofil ist es tagsüber unterwegs – genau in der ertragreichsten Zeit. Deshalb kannst du Abfahrt und Rückkehr selbst einstellen und siehst sofort, wie stark das die Wirtschaftlichkeit verändert.</p>
+
+<h2>8. Grenzen des Modells</h2>
+<p>Ehrlich bleibt ehrlich – deshalb die Grenzen:</p>
+<ul>
+<li>Es ist ein <b>vereinfachtes Modell</b> aus einer Bachelorarbeit, keine Angebotskalkulation. Reale Preise, Förderungen und Angebote können abweichen.</li>
+<li>Gerechnet wird mit einem <b>Standard-Lastprofil und einem Wetterjahr</b> – dein tatsächlicher Verbrauch und dein Standort können anders liegen.</li>
+<li>Steuerliche Effekte (z. B. Umsatzsteuer-Details) und individuelle Tarife sind nicht abgebildet.</li>
+<li>Die Ergebnisse sind eine <b>fundierte Orientierung</b>, keine Finanz-, Steuer- oder Rechtsberatung.</li>
+</ul>
+
+<div class="note"><b>Kurz gesagt:</b> Der Rechner nimmt reale Wetter- und Verbrauchsdaten, spielt ein Jahr Stunde für Stunde durch und bewertet das Ganze über 25 Jahre mit offen gelegten Annahmen. Nutze ihn, um ein Gefühl für die Größenordnung zu bekommen – und hol für eine echte Entscheidung konkrete Angebote ein.</div>
+
+<a class="cta" href="./index.html#rechner">Zum Rechner</a>
+</main>
+<footer><div class="in"><span>© 2026 Solarenergierechner.de</span><div class="sp"></div><a href="./index.html#rechner">Rechner</a><a href="./impressum.html">Impressum</a><a href="./datenschutz.html">Datenschutz</a></div></footer>
+</body></html>
