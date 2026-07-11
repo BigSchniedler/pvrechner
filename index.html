@@ -501,8 +501,8 @@ document.getElementById("reset").addEventListener("click",()=>{
     document.getElementById("v_"+k).textContent=fmtVal(k,DEFS[k].d);fillStyle(el);});
   state.bess=true;state.ev=true;state.v2h=false;updateEnable();render();});
 document.getElementById("foot").innerHTML=
- "<b>Modellgrundlage:</b> Bachelorarbeit „Der Einfluss eines Elektrofahrzeugs auf die Wirtschaftlichkeit einer Photovoltaikanlage im deutschen Einfamilienhaushalt“. Stündliche Simulation über 8.760 h (Wetterjahr 2020, PVGIS-SARAH3), Standardlastprofil BDEW H25, 25 Jahre, nominale Rechnung inkl. §14a-EnWG-Netzentgeltreduktion (150 €/Jahr) bei Speicher-/E-Auto-Konzepten. "+
- "<b>V2H</b> reagiert stark auf die Anwesenheit des Autos — Standard ist ein Pendlerprofil (tagsüber weg). Ergebnisse sind Orientierung, keine Finanz- oder Steuerberatung.";
+ "<b>Modellgrundlage:</b> Stündliche Simulation über 8.760 h (Wetterjahr 2020, PVGIS-SARAH3), Standardlastprofil BDEW H25, 25 Jahre, nominale Rechnung inkl. §14a-EnWG-Netzentgeltreduktion (150 €/Jahr) bei Speicher-/E-Auto-Konzepten. "+
+ "Ergebnisse sind Orientierung, keine Finanz- oder Steuerberatung.";
 // ===== go =====
 initCharts();updateEnable();render();
 </script>
